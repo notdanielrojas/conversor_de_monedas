@@ -27,7 +27,9 @@ async function convertirMoneda() {
     // Muestra el resultado de la conversión en el elemento HTML con el id "resultado"
     document.getElementById(
       "resultado"
-    ).innerHTML = `Resultado: ${resultado.toFixed(0)} ${moneda.toUpperCase()}`;
+    ).innerHTML = `Resultado: ${resultado.toFixed(2)} ${moneda.toUpperCase()}`;
+    // En la función convertirMoneda(), después de obtener el resultado y mostrarlo:
+    document.getElementById("myChart").style.display = "block";
   } catch (error) {
     // Maneja los errores en caso de que falle la solicitud a la API
     console.error("Error al obtener los datos de la API:", error);

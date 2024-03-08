@@ -69,8 +69,8 @@ select {
 
 canvas {
   width: 100%; /* Ajusta al ancho del contenedor */
-  max-width: 600px; /* Define el ancho máximo de la gráfica */
-  height: auto; /* Ajusta automáticamente la altura de la gráfica */
+  height: 50vh; /* Ajusta la altura al 50% de la ventana */
+  display: none; /* Oculta el canvas inicialmente */
 }
 
 /* Media query para dispositivos de pantalla pequeña (máximo 768px) */
@@ -78,11 +78,19 @@ canvas {
   .conversor {
     max-width: 28rem; /* Reduce el ancho máximo del conversor */
   }
+  canvas {
+    width: 100%; /* Ajusta al ancho del contenedor */
+    height: 30vh; /* Ajusta la altura al 50% de la ventana */
+  }
 }
 
 /* Media query para dispositivos de pantalla pequeña (máximo 320px) */
 @media screen and (max-width: 320px) {
   .conversor {
     max-width: 25rem; /* Reduce aún más el ancho máximo del conversor */
+  }
+  canvas {
+    width: 90%; /* Ajusta al ancho del contenedor */
+    height: 30vh; /* Ajusta la altura al 50% de la ventana */
   }
 }
