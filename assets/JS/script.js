@@ -27,8 +27,10 @@ async function convertirMoneda() {
     } else if (moneda === "euro") {
       resultado = cantidad / data.euro.valor; // Realiza el cálculo para convertir a euros
       informacion("euro", moneda); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del euro
+    } else if (moneda === "uf") {
+      resultado = cantidad / data.uf.valor; // Realiza el cálculo para convertir a uf
+      informacion("uf", moneda); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del uf
     }
-
     // Muestra el resultado de la conversión en el elemento HTML con el id "resultado"
     document.getElementById(
       "resultado"
