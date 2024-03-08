@@ -18,10 +18,10 @@ async function convertirMoneda() {
     // Verifica el tipo de moneda seleccionada por el usuario y realiza el cálculo de conversión correspondiente
     if (moneda === "usd") {
       resultado = cantidad / data.dolar.valor; // Realiza el cálculo para convertir a dólares
-      informacion("dolar"); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del dólar
+      informacion("dolar", moneda); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del dólar
     } else if (moneda === "euro") {
       resultado = cantidad / data.euro.valor; // Realiza el cálculo para convertir a euros
-      informacion("euro"); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del euro
+      informacion("euro", moneda); // Llama a la función informacion para mostrar el gráfico de la tasa de cambio del euro
     }
 
     // Muestra el resultado de la conversión en el elemento HTML con el id "resultado"
@@ -37,7 +37,7 @@ async function convertirMoneda() {
 }
 
 // Función asíncrona que obtiene los datos de la API y muestra un gráfico de la tasa de cambio
-const informacion = async (variable) => {
+const informacion = async (variable, nombreMoneda) => {
   // Realiza una solicitud GET a la API para obtener los datos de la tasa de cambio específica (dólar o euro)
   const res = await fetch(`https://mindicador.cl/api/${variable}`);
   // Convierte la respuesta a formato JSON
@@ -62,49 +62,52 @@ const informacion = async (variable) => {
   const yValues = valores.reverse(); // Arreglo de valores invertido
 
   // Crea un nuevo gráfico utilizando Chart.js con los datos obtenidos
-new Chart("myChart", {
-  type: "line", // Tipo de gráfico: línea
-  data: {
-    labels: xValues, // Etiquetas del eje X (fechas)
-    datasets: [
-      {
-        fill: false, // No rellena el área bajo la línea
-        lineTension: 0, // No aplica tensión a la línea
-        backgroundColor: "rgba(255, 255, 255, 1.0)", // Color de fondo blanco
-        borderColor: "rgba(255, 255, 255, 0.1)", // Color de borde blanco con opacidad
-        data: yValues, // Datos del eje Y (valores)
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    scales: {
-      yAxes: [
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [
         {
-          ticks: {
-            fontColor: "white", // Color de las etiquetas en el eje Y
-          },
-          gridLines: {
-            color: "rgba(255, 255, 255, 0.2)", // Color de las líneas de la cuadrícula en el eje Y
-          },
-        },
-      ],
-      xAxes: [
-        {
-          ticks: {
-            fontColor: "white", // Color de las etiquetas en el eje X
-          },
-          gridLines: {
-            color: "rgba(255, 255, 255, 0.2)", // Color de las líneas de la cuadrícula en el eje X
-          },
+          label: nombreMoneda.toUpperCase(), // Utiliza el nombre de la moneda como etiqueta del dataset
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "rgba(0, 255, 66, 1)",
+          borderColor: "rgba(255, 255, 255, 0.1)",
+          data: yValues,
         },
       ],
     },
-  },
-});
-
+    options: {
+      plugins: {
+        legend: {
+          display: true,
+          labels: {
+            fontColor: "white",
+          },
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              fontColor: "white",
+            },
+            gridLines: {
+              color: "rgba(255, 255, 255, 0.2)",
+            },
+          },
+        ],
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "white",
+            },
+            gridLines: {
+              color: "rgba(255, 255, 255, 0.2)",
+            },
+          },
+        ],
+      },
+    },
+  });
 };
