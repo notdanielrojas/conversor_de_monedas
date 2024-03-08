@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Declaración del tipo de documento -->
+<html lang="en">
+  <!-- Inicio del documento HTML con el atributo de idioma en inglés -->
+
+  <head>
+    <!-- Sección de encabezado -->
+    <meta charset="UTF-8" />
+    <!-- Configuración del juego de caracteres UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Configuración de la escala inicial para dispositivos móviles -->
+    <link rel="stylesheet" href="./assets/CSS/normalize.css" />
+    <!-- Enlace a la hoja de estilos normalize.css -->
+    <link rel="stylesheet" href="./assets/CSS/global.css" />
+    <!-- Enlace a la hoja de estilos global.css -->
+    <link rel="stylesheet" href="./assets/CSS/styles.css" />
+    <!-- Enlace a la hoja de estilos styles.css -->
+    <title>Conversor de Monedas</title>
+    <!-- Título del documento -->
+  </head>
+
+  <body>
+    <!-- Cuerpo del documento -->
+    <div class="contenedor">
+      <!-- Contenedor principal -->
+      <h1 class="titulo">Conversor de monedas Nacional</h1>
+      <!-- Título principal -->
+      <div class="conversor">
+        <!-- Contenedor del conversor de monedas -->
+        <label for="cantidad" class="titulo-cantidad">Pesos CLP</label>
+        <!-- Etiqueta para la cantidad de pesos CLP -->
+        <input
+          type="number"
+          id="cantidad"
+          min="0"
+          max="1000000"
+          maxlength="7"
+          placeholder="Ingrese el monto en CLP"
+        />
+        <!-- Campo de entrada para la cantidad de pesos CLP -->
+        <label for="moneda" class="titulo-moneda">Moneda a convertir:</label>
+        <!-- Etiqueta para seleccionar la moneda a convertir -->
+        <select name="monedas" id="moneda">
+          <!-- Menú desplegable para seleccionar la moneda -->
+          <option value="" selected disabled>Seleccione moneda</option>
+          <!-- Opción predeterminada deshabilitada -->
+          <option value="usd">USD</option>
+          <!-- Opción para convertir a dólares USD -->
+          <option value="euro">EUR</option>
+          <!-- Opción para convertir a euros EUR -->
+        </select>
+        <button id="buscar">Buscar</button>
+        <!-- Botón para iniciar la conversión -->
+        <p id="resultado">...</p>
+        <!-- Párrafo para mostrar el resultado de la conversión -->
+      </div>
+      <div class="grafica">
+        <!-- Contenedor para el gráfico -->
+        <canvas id="myChart"></canvas>
+        <!-- Elemento de lienzo para el gráfico -->
+      </div>
+    </div>
+    <script src="./assets/JS/script.js"></script>
+    <!-- Enlace al archivo de script JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Enlace al archivo de biblioteca Chart.js -->
+  </body>
+</html>

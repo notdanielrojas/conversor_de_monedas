@@ -1,0 +1,88 @@
+/* Contenedor principal */
+.contenedor {
+  display: flex; /* Usa un modelo de caja flexible */
+  flex-direction: column; /* Los elementos hijos se apilan verticalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  height: 100vh; /* Ajusta la altura al 100% de la ventana */
+  background-color: #212529; /* Color de fondo */
+}
+
+/* Contenedor del conversor */
+.conversor {
+  display: flex; /* Usa un modelo de caja flexible */
+  flex-direction: column; /* Los elementos hijos se apilan verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  padding: 2rem; /* Espaciado interior */
+  border: none; /* Sin borde */
+  border-radius: 0.5rem; /* Borde redondeado */
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 2rem auto; /* Margen superior e inferior auto para centrar horizontalmente */
+  background-color: #6c757d; /* Color de fondo */
+  max-width: 29rem; /* Ancho máximo del conversor */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.titulo {
+  color: white; /* Color del texto */
+  border-bottom: 2px solid #1e3941; /* Línea inferior */
+  border-top: 2px solid #1e3941; /* Línea superior */
+  padding: 1.5rem 0rem; /* Espaciado interno superior e inferior */
+  text-align: center; /* Centra el texto */
+}
+
+label {
+  color: white; /* Color del texto */
+}
+
+.titulo-cantidad,
+.titulo-moneda {
+  font-size: larger; /* Tamaño del texto */
+  padding: 1rem 0rem; /* Espaciado superior e inferior */
+  text-align: center; /* Centra el texto */
+}
+
+input[placeholder="Ingrese el monto en CLP"],
+select {
+  text-align: center; /* Alinea el texto al centro */
+  padding: 0.5rem; /* Espaciado uniforme */
+  width: 100%; /* Ajusta al ancho del contenedor */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+#buscar {
+  margin-top: 1rem; /* Espaciado superior */
+  padding: 1rem; /* Espaciado interior */
+  color: white; /* Color del texto */
+  background-color: #0dcaf0; /* Color de fondo del botón */
+  width: 100%; /* Ajusta al ancho del contenedor */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+#resultado {
+  font-size: larger; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  width: 100%; /* Ajusta al ancho del contenedor */
+  text-align: center; /* Centra el texto */
+}
+
+canvas {
+  width: 100%; /* Ajusta al ancho del contenedor */
+  max-width: 600px; /* Define el ancho máximo de la gráfica */
+  height: auto; /* Ajusta automáticamente la altura de la gráfica */
+}
+
+/* Media query para dispositivos de pantalla pequeña (máximo 768px) */
+@media screen and (max-width: 768px) {
+  .conversor {
+    max-width: 28rem; /* Reduce el ancho máximo del conversor */
+  }
+}
+
+/* Media query para dispositivos de pantalla pequeña (máximo 320px) */
+@media screen and (max-width: 320px) {
+  .conversor {
+    max-width: 25rem; /* Reduce aún más el ancho máximo del conversor */
+  }
+}
