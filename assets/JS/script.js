@@ -7,6 +7,11 @@ async function convertirMoneda() {
   const cantidad = document.getElementById("cantidad").value;
   // Obtiene el valor de la moneda seleccionada por el usuario
   const moneda = document.getElementById("moneda").value;
+  // Validación para asegurarse de que se ingrese una cantidad válida
+  if (!cantidad || isNaN(cantidad)) {
+    alert("Por favor, ingresa una cantidad válida.");
+    return;
+  }
 
   try {
     // Realiza una solicitud GET a la API para obtener los datos de las tasas de cambio
