@@ -49,7 +49,7 @@ async function convertirMoneda() {
     // Muestra el resultado de la conversión en el elemento HTML con el id "resultado"
     document.getElementById(
       "resultado"
-    ).innerHTML = `Resultado: ${resultado.toFixed(2)} ${moneda.toUpperCase()}`;
+    ).innerHTML = `Resultado: $${resultado.toFixed(2)} ${moneda.toUpperCase()}`;
     // En la función convertirMoneda(), después de obtener el resultado y mostrarlo:
     document.getElementById("myChart").style.display = "block";
   } catch (error) {
