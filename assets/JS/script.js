@@ -1,6 +1,21 @@
 // Agrega un event listener al botón con el id "buscar", que escucha el evento "click" y ejecuta la función convertirMoneda
 document.getElementById("buscar").addEventListener("click", convertirMoneda);
 
+// Agrega un event listener al input con el id "cantidad", que escucha el evento "input" y ejecuta la función validarCantidad
+document.getElementById("cantidad").addEventListener("input", validarCantidad);
+
+// Función que valida la cantidad ingresada en el input
+function validarCantidad() {
+  const cantidadInput = document.getElementById("cantidad");
+  let cantidad = parseFloat(cantidadInput.value); // Obtiene el valor del input como número
+
+  // Verifica si la cantidad ingresada es negativa
+  if (cantidad < 0) {
+    // Si es negativa, establece el valor del input como 0
+    cantidadInput.value = "";
+  }
+}
+
 // Función asíncrona que se ejecuta al hacer clic en el botón "buscar" para convertir la cantidad de moneda ingresada
 async function convertirMoneda() {
   // Obtiene el valor de la cantidad ingresada por el usuario
